@@ -7,6 +7,7 @@ class Item:
     pay_rate = 1
     all = []
 
+
     def __init__(self, name: str, price: float, quantity: int):
         """
         Создание экземпляра класса item.
@@ -19,6 +20,7 @@ class Item:
         self.price = price
         self.quantity = quantity
         Item.all.append(self)
+
 
     @property
     def name(self):
@@ -33,11 +35,18 @@ class Item:
         else:
             return self.__name[:11]
 
+
     def __repr__(self):
+        """Информация о классе для разработчиков"""
+
         return f"{self.__class__.__name__}('{self.name}', {self.price}, {self.quantity})"
 
+
     def __str__(self):
+        """Информация для пользователей"""
+
         return self.name
+
 
     def calculate_total_price(self) -> float:
         """
