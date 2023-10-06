@@ -22,3 +22,10 @@ def test_string_to_number():
 def test_instantiate_from_csv():
     Item.instantiate_from_csv('src/items.csv')  # создание объектов из данных файла
     assert len(Item.all) == 5
+
+# Тесты на repr и str
+
+item_2 = Item("Планшет", 30000.5, 10)
+
+assert repr(item_2) == "Item('Планшет', 30000.5, 10)"
+assert str(item_2) == "Планшет"
