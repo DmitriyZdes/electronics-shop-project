@@ -1,7 +1,7 @@
 """Здесь надо написать тесты с использованием pytest для модуля item."""
 
-from src.item import Item
-
+from src.item import Item, InstantiateCSVError
+import pytest
 
 def test_calculate_total_price():
     item_1 = Item("Cмартфон", 45000.8, 10)
@@ -29,3 +29,10 @@ item_2 = Item("Планшет", 30000.5, 10)
 
 assert repr(item_2) == "Item('Планшет', 30000.5, 10)"
 assert str(item_2) == "Планшет"
+
+#Тесты на класс ошибок  InstantiateCSVError
+
+def test_instatiate_csv_error():
+
+    with pytest.raises(InstantiateCSVError):
+        Item.instantiate_csv_error('src/item1.csv')
